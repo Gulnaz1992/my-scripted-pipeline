@@ -1,6 +1,6 @@
 node {
-  stage("Building"){
-    echo 'Building..'
+  stage("Clone Repo"){
+    git  'https://github.com/Gulnaz1992/my-scripted-pipeline.git'
   }
   stage("Testing"){
     echo 'Testing..'
@@ -9,6 +9,6 @@ node {
     echo 'Deploying....'
   }
   stage("Send Notification to Slack"){
-    slackSend color: '#BADA55', message: 'Finished deployment!'
+    slackSend channel: 'apr_2020', message: 'Hello'
   }
 }
