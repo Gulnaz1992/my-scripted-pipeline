@@ -9,7 +9,7 @@ if (nodeIP.length() > 6) {
             git branch: 'master', changelog: false, poll: false, url: 'https://github.com/ikambarov/ansible-Flaskex.git'
         }
         withEnv(['ANSIBLE_HOST_KEY_CHECKING=False', 'FLASKEX_REPO=https://github.com/ikambarov/Flaskex.git', 'FLASKEX_BRANCH=master']) {
-            stage("Install Apache"){
+            stage("Install Flaskex"){
                 ansiblePlaybook credentialsId: 'jenkins-master-ssh-key', inventory: '${nodeIP},', playbook: 'main.yml'
                 }
             }  
